@@ -1,20 +1,18 @@
-
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Hello from './component/helo'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import BirthdaySurprise from "./component/birthdayLandingPage";
+import BirthdayImage from "./component/Image";
 
 function App() {
   return (
-    <>
-      <div class="text-3xl font-bold underline">
-        <h1>
-          Hello world!y
-        </h1>
-        <Hello/>
-      </div>
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<BirthdaySurprise />} />
+        <Route path="/its_Your_birthday" element={<BirthdayImage />} />
+
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
