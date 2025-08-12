@@ -24,38 +24,75 @@ const photos = [
     { image: Image, caption: "Happy birthday pyar ko pyar se nibanne wali Divya ko 🥺" }
 ];
 
+const emojis = ["❤️", "💖", "🤍", "🌹", "😍", "😘", "🎉", "🥳", "💓", "💘"];
+
+const EmojiRain = () => {
+    const { width, height } = useWindowSize();
+    return (
+        <div className="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-50">
+            {Array.from({ length: 50 }).map((_, i) => {
+                const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+                const left = Math.random() * width;
+                const delay = Math.random() * 5;
+                const duration = 4 + Math.random() * 3;
+                const size = 24 + Math.random() * 24;
+
+                return (
+                    <motion.div
+                        key={i}
+                        initial={{ y: -50, x: left, opacity: 0 }}
+                        animate={{ y: height + 50, opacity: 1 }}
+                        transition={{
+                            duration: duration,
+                            delay: delay,
+                            repeat: Infinity,
+                            ease: "linear"
+                        }}
+                        style={{
+                            position: "absolute",
+                            fontSize: `${size}px`
+                        }}
+                    >
+                        {randomEmoji}
+                    </motion.div>
+                );
+            })}
+        </div>
+    );
+};
+
 export default function BirthdaySurprise() {
     const { width, height } = useWindowSize();
     const [showSurprise, setShowSurprise] = useState(false);
+    const [emojiRain, setEmojiRain] = useState(false)
     const navigate = useNavigate();
 
     useEffect(() => {
         setShowSurprise(true);
     }, []);
 
+    useEffect(() => {
+        setEmojiRain(true);
+        const timer = setTimeout(() => {
+            setEmojiRain(false);
+        }, 6000);
+        return (() => clearTimeout(timer))
+    }, [])
+
     const handleClick = () => {
+        console.log("here is the click ")
         setShowSurprise(true)
         navigate("/its_Your_birthday")
     };
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-pink-50 via-rose-100 to-blue-50 text-center px-6 py-10 text-gray-900 select-none"
-
-            // className="min-h-screen bg-gradient-to-b from-white via-pink-50 to-blue-100 text-center px-6 py-10 text-gray-900 select-none"
             style={{ fontFamily: "'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" }}
         >
             {showSurprise && (
-                <Confetti
-                    width={width}
-                    height={height}
-                    numberOfPieces={400}
-                    recycle={false}
-                />
-            )}
-            {/* Celebration confetti */}
-            {showSurprise && (
                 <Confetti width={width} height={height} numberOfPieces={400} recycle={false} />
             )}
+            {emojiRain && <EmojiRain />}
 
             {/* Main heading */}
             <div className="relative w-full flex items-center justify-center py-10">
@@ -65,30 +102,20 @@ export default function BirthdaySurprise() {
                     alt="Background"
                     className="absolute top-0 left-0 w-full h-full object-cover opacity-20 pointer-events-none z-0"
                 />
-
-                {/* Text with animation */}
                 <motion.h1
                     className="text-5xl sm:text-7xl font-extrabold mb-8 text-pink-600 drop-shadow-lg leading-relaxed z-10 text-center px-4"
                     initial={{ opacity: 0, y: -100 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1.2, ease: "easeOut" }}
                     style={{
-                        fontFamily: "Caveat, cursive",
+                        fontFamily: "'Alex Brush', cursive",
                         textDecoration: "none",
+                        animation: "floating 4s ease-in-out infinite"
                     }}
                 >
                     Happy Birthday Divu, My Beautiful Love 💖😘🥳
                 </motion.h1>
             </div>
-
-            {/* Subtitle */}
-            <motion.p
-                className="max-w-xl mx-auto mb-14 text-xl sm:text-2xl text-green-1100 font-semibold"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1, duration: 1.5 }}
-                style={{ fontFamily: " Alex Brush , alex-brush, Georgia, serif", paddingTop: "80px" }}
-            >Happy Birthday </motion.p>
             <img
                 src={HBD}
                 alt="hbd" loading="lazy"
@@ -177,6 +204,7 @@ export default function BirthdaySurprise() {
                             </motion.h5>
                         </motion.div>
                     ))}
+
                 </div>
             </motion.div>
 
@@ -237,31 +265,35 @@ export default function BirthdaySurprise() {
                     "In your eyes, I find home. In your heart, I find peace. Here's to a lifetime of memories together."
                 </p>
             </motion.div>
-
-            {/* Surprise Button */}
-            <h5>Lo ab pyar se divya special smile karo or ise touch karo 😍</h5>
+            <motion.h3
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+                className="text-2xl sm:text-3xl font-semibold text-center mb-6 
+                 bg-gradient-to-r from-red-500 via-red-400 to-pink-500 
+                 text-transparent bg-clip-text"
+                style={{ fontFamily: "'Dancing Script', cursive" }}
+            >    <span>
+                    Lo ab pyar se Divya special smile karo or ise touch karo.
+                </span>
+            </motion.h3>
             <motion.button
                 onClick={handleClick}
-                className={`relative inline-block bg-pink-400 hover:bg-pink-500 text-white font-bold py-3 px-10 rounded-full shadow-lg transition transform active:scale-95 focus:outline-none focus:ring-4 focus:ring-pink-300 mb-20`}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                disabled={showSurprise}
-                style={{ textDecoration: "none" }}
+                className="relative inline-block text-white font-bold py-3 px-12 rounded-full shadow-lg
+                 bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600
+                 hover:from-pink-500 hover:via-pink-600 hover:to-pink-700
+                 transition-all duration-300 ease-out focus:outline-none focus:ring-4 focus:ring-pink-300"
+                style={{
+                    textDecoration: "none",
+                    boxShadow: "0 8px 20px rgba(255, 105, 180, 0.4)",
+                }}
             >
-                Touch with smile
+                <span className="relative z-10">😊 Touch with Smile</span>
+                {/* Glow animation */}
+                <span className="absolute inset-0 rounded-full bg-pink-400 opacity-30 blur-lg animate-pulse"></span>
             </motion.button>
-
-            {/* Surprise Message */}
-            {showSurprise && (
-                <motion.div
-                    className="max-w-xl mx-auto px-8 py-10 rounded-3xl bg-gradient-to-tr from-pink-100 to-blue-200 shadow-md text-pink-700 font-extrabold text-3xl sm:text-4xl tracking-wide mb-20"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1 }}
-                    style={{ textDecoration: "none" }}
-                >
-                    Here’s your Surprise... 🎁✨ Stay tuned for more love and unforgettable moments!
-                </motion.div>
-            )}
         </div>
     );
 }

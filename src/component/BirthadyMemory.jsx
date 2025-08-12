@@ -1,11 +1,19 @@
 import { useEffect } from "react";
 import Image from "../../public/image/image1.png";
 import { motion } from "framer-motion";
+import confetti from "canvas-confetti";
 
 function BirthdayMemory() {
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "smooth" });
+        setTimeout(()=>{
+            confetti({
+            particleCount: 200,
+            spread: 70,
+            origin: { y: 0.6 },
+        });
+        }, 1800)
     }, []);
     return (
         <motion.div
