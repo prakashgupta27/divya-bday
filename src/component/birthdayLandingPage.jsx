@@ -1,28 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import { useWindowSize } from "react-use";
-import BirthdayMemory from "./BierthadyMemory";
+// import BirthdayMemory from "./BierthadyMemory";
 import image from "../../public/image/a.png"
 import { useNavigate } from "react-router-dom";
+import Image from "../../public/image/image1.png";
+import "@fontsource/dancing-script";
+import "@fontsource/playfair-display";
+import "@fontsource/alex-brush";
+import HBD from "../../public/image/hbd.png"
+
 
 const photos = [
-    "/img1.jpg",
-    "/img2.jpg",
-    "/img3.jpg",
-    "/img4.jpg",
-    "/img5.jpg",
-    "/img6.jpg",
-    "/img7.jpg",
-    "/img8.jpg",
-    "/img9.jpg",
-    // add more images for a longer gallery
+    { image: Image, caption: "Happy birthday Apne Pariwar ki sabse Achi beti Divya ko 🥰" },
+    { image: Image, caption: "Happy birthday Papa ki ladli beti ko Divu beta ko😍" },
+    { image: Image, caption: "Happy birthday Ek achi Didi ko 😉" },
+    { image: Image, caption: "Happy birthday Sabse achi dost ko 🫂" },
+    { image: Image, caption: "Happy birthday Naresh ki friend ko 😏" },
+    { image: Image, caption: "Happy birthday Ek dosti nibhane wali Divya ko ✌️" },
+    { image: Image, caption: "Happy Birthday mummy ki pyari beti ko ❤️" },
+    { image: Image, caption: "Happy birthday Duniya ki sabse Sundar ladki ko 🤩" },
+    { image: Image, caption: "Happy birthday pyar ko pyar se nibanne wali Divya ko 🥺" }
 ];
 
 export default function BirthdaySurprise() {
     const { width, height } = useWindowSize();
     const [showSurprise, setShowSurprise] = useState(false);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        setShowSurprise(true);
+    }, []);
 
     const handleClick = () => {
         setShowSurprise(true)
@@ -30,10 +39,19 @@ export default function BirthdaySurprise() {
     };
 
     return (
-        <div
-            className="min-h-screen bg-gradient-to-b from-white via-pink-50 to-blue-100 text-center px-6 py-10 text-gray-900 select-none"
+        <div className="min-h-screen bg-gradient-to-b from-pink-50 via-rose-100 to-blue-50 text-center px-6 py-10 text-gray-900 select-none"
+
+            // className="min-h-screen bg-gradient-to-b from-white via-pink-50 to-blue-100 text-center px-6 py-10 text-gray-900 select-none"
             style={{ fontFamily: "'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" }}
         >
+            {showSurprise && (
+                <Confetti
+                    width={width}
+                    height={height}
+                    numberOfPieces={400}
+                    recycle={false}
+                />
+            )}
             {/* Celebration confetti */}
             {showSurprise && (
                 <Confetti width={width} height={height} numberOfPieces={400} recycle={false} />
@@ -65,11 +83,23 @@ export default function BirthdaySurprise() {
 
             {/* Subtitle */}
             <motion.p
-                className="max-w-xl mx-auto mb-14 text-xl sm:text-2xl text-pink-700 font-semibold"
+                className="max-w-xl mx-auto mb-14 text-xl sm:text-2xl text-green-1100 font-semibold"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1, duration: 1.5 }}
-                style={{ fontFamily: "Georgia, serif", paddingTop:"80px" }}
+                style={{ fontFamily: " Alex Brush , alex-brush, Georgia, serif", paddingTop: "80px" }}
+            >Happy Birthday </motion.p>
+            <img
+                src={HBD}
+                alt="hbd" loading="lazy"
+                style={{ textDecoration: "none" }}
+            />
+            <motion.p
+                className="max-w-xl mx-auto mb-14 text-xl sm:text-2xl text-green-1100 font-semibold"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1, duration: 1.5 }}
+                style={{ fontFamily: "Georgia, serif", paddingTop: "80px" }}
             >
                 Even though today is your birthday,
                 every single day feels like a celebration for this world
@@ -82,16 +112,22 @@ export default function BirthdaySurprise() {
                 because then, I would celebrate each day
                 as if it were your birthday.
 
-                That's way my heart say 💓🙈
-                <br />
-                <br />
-                <br />
-                <p style={{ color: "#48cae4" }}>"चाँद सी महबूबा हो मेरी,
+                That's way my heart say
+                💓🙈
+                <motion.p
+                    className="max-w-xl mx-auto mb-14 text-xl sm:text-2xl text-green-1000 font-semibold"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1, duration: 1.5 }}
+                    style={{ fontFamily: "Georgia, serif", paddingTop: "80px" }}
+                >
+                    "चाँद सी महबूबा हो मेरी,
                     कब ऐसा मैंने सोचा था।
                     हाँ, तुम बिल्कुल वैसी हो,
                     जैसा मैंने सोचा था।
                     चाँद सी महबूबा हो मेरी,
-                    कब ऐसा मैंने सोचा था..."</p>
+                    कब ऐसा मैंने सोचा था..."
+                </motion.p>
             </motion.p>
 
             {/* Photo gallery */}
@@ -108,21 +144,40 @@ export default function BirthdaySurprise() {
                     },
                 }}
             >
-                {photos.map((src, index) => (
-                    <motion.img
-                        key={index}
-                        src={src}
-                        alt={`Memory ${index + 1}`}
-                        className="rounded-3xl shadow-xl object-cover w-full h-48 sm:h-60 cursor-pointer filter hover:brightness-110 transition"
-                        whileHover={{ scale: 1.08 }}
-                        variants={{
-                            hidden: { opacity: 0, y: 20 },
-                            visible: { opacity: 1, y: 0 },
-                        }}
-                        loading="lazy"
-                        style={{ textDecoration: "none" }}
-                    />
-                ))}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                    {photos.map((src, index) => (
+                        <motion.div
+                            key={index}
+                            className="flex flex-col items-center"
+                            initial={{
+                                opacity: 0,
+                                x: index % 2 === 0 ? -100 : 100 // alternate left/right
+                            }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 3, ease: "easeOut" }}
+                            viewport={{ once: true, amount: 0.2 }} // trigger when 20% visible
+                        >
+                            <img
+                                src={src.image}
+                                alt={`Memory ${index + 1}`}
+                                className="rounded-3xl shadow-xl object-cover w-full h-48 sm:h-60 cursor-pointer filter hover:brightness-110 transition"
+                                loading="lazy"
+                                style={{ textDecoration: "none" }}
+                            />
+                            {/* <h5 className="mt-2 text-center text-pink-700 font-semibold">{src.caption}</h5> */}
+                            <motion.h5
+                                className="mt-4 text-center text-pink-700 text-2xl sm:text-3xl font-medium drop-shadow-md"
+                                style={{ fontFamily: "'Playfair Display's, sans-serif" }}
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.3 + index * 0.2, duration: 0.8 }}
+                                viewport={{ once: true }}
+                            >
+                                {src.caption}
+                            </motion.h5>
+                        </motion.div>
+                    ))}
+                </div>
             </motion.div>
 
             {/* Personal messages */}
@@ -184,6 +239,7 @@ export default function BirthdaySurprise() {
             </motion.div>
 
             {/* Surprise Button */}
+            <h5>Lo ab pyar se divya special smile karo or ise touch karo 😍</h5>
             <motion.button
                 onClick={handleClick}
                 className={`relative inline-block bg-pink-400 hover:bg-pink-500 text-white font-bold py-3 px-10 rounded-full shadow-lg transition transform active:scale-95 focus:outline-none focus:ring-4 focus:ring-pink-300 mb-20`}
@@ -191,7 +247,7 @@ export default function BirthdaySurprise() {
                 disabled={showSurprise}
                 style={{ textDecoration: "none" }}
             >
-                Touch here
+                Touch with smile
             </motion.button>
 
             {/* Surprise Message */}
@@ -206,11 +262,6 @@ export default function BirthdaySurprise() {
                     Here’s your Surprise... 🎁✨ Stay tuned for more love and unforgettable moments!
                 </motion.div>
             )}
-
-            {/* Footer */}
-            <footer className="text-gray-500 text-sm mb-6" style={{ textDecoration: "none" }}>
-                Crafted with ❤️ using React, Tailwind & Framer Motion
-            </footer>
         </div>
     );
 }

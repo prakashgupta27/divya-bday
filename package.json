@@ -10,7 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/alex-brush": "^5.2.6",
     "@fontsource/caveat": "^5.2.6",
+    "@fontsource/dancing-script": "^5.2.6",
+    "@fontsource/playfair-display": "^5.2.6",
     "@tailwindcss/vite": "^4.1.11",
     "framer-motion": "^12.23.12",
     "react": "^19.1.0",
