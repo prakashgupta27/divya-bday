@@ -10,6 +10,7 @@ import "@fontsource/dancing-script";
 import "@fontsource/playfair-display";
 import "@fontsource/alex-brush";
 import HBD from "../../public/image/hbd.png"
+import WishCard from "./Card";
 
 
 const photos = [
@@ -173,36 +174,7 @@ export default function BirthdaySurprise() {
             >
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
                     {photos.map((src, index) => (
-                        <motion.div
-                            key={index}
-                            className="flex flex-col items-center"
-                            initial={{
-                                opacity: 0,
-                                x: index % 2 === 0 ? -100 : 100 // alternate left/right
-                            }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 3, ease: "easeOut" }}
-                            viewport={{ once: true, amount: 0.2 }} // trigger when 20% visible
-                        >
-                            <img
-                                src={src.image}
-                                alt={`Memory ${index + 1}`}
-                                className="rounded-3xl shadow-xl object-cover w-full h-48 sm:h-60 cursor-pointer filter hover:brightness-110 transition"
-                                loading="lazy"
-                                style={{ textDecoration: "none" }}
-                            />
-                            {/* <h5 className="mt-2 text-center text-pink-700 font-semibold">{src.caption}</h5> */}
-                            <motion.h5
-                                className="mt-4 text-center text-pink-700 text-2xl sm:text-3xl font-medium drop-shadow-md"
-                                style={{ fontFamily: "'Playfair Display's, sans-serif" }}
-                                initial={{ opacity: 0, y: 10 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.3 + index * 0.2, duration: 0.8 }}
-                                viewport={{ once: true }}
-                            >
-                                {src.caption}
-                            </motion.h5>
-                        </motion.div>
+                        <WishCard key={index} image={src.image} caption={src.caption} />
                     ))}
 
                 </div>
