@@ -11,7 +11,7 @@ import "@fontsource/playfair-display";
 import "@fontsource/alex-brush";
 import HBD from "../../public/image/hbd.png"
 import WishCard from "./Card";
-
+import CoverPhoto from "../../public/image/CoverPhoto.jpeg"
 
 const photos = [
     { image: Image, caption: "Happy birthday Apne Pariwar ki sabse Achi beti Divya ko 🥰" },
@@ -91,19 +91,22 @@ export default function BirthdaySurprise() {
             style={{ fontFamily: "'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" }}
         >
             {showSurprise && (
-                <Confetti width={width} height={height} numberOfPieces={400} recycle={false} />
+                <Confetti width={width} height={height} numberOfPieces={600} recycle={false} />
             )}
             {emojiRain && <EmojiRain />}
 
             {/* Main heading */}
-            <div className="relative w-full flex items-center justify-center py-10">
-                {/* Background Image */}
-                <img
-                    src={image}
-                    alt="Background"
-                    className="absolute top-0 left-0 w-full h-full object-cover opacity-20 pointer-events-none z-0"
-                />
-                <motion.h1
+            <div
+                className="relative w-full flex items-center justify-center py-10"
+                style={{
+                    minHeight: "550px", // adjust as needed, or use height: "50vh", etc.
+                    backgroundImage: `url(${CoverPhoto})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                }}
+            >
+                {/* <motion.h1
                     className="text-5xl sm:text-7xl font-extrabold mb-8 text-pink-600 drop-shadow-lg leading-relaxed z-10 text-center px-4"
                     initial={{ opacity: 0, y: -100 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -111,12 +114,17 @@ export default function BirthdaySurprise() {
                     style={{
                         fontFamily: "'Alex Brush', cursive",
                         textDecoration: "none",
-                        animation: "floating 4s ease-in-out infinite"
+                        animation: "floating 4s ease-in-out infinite",
                     }}
                 >
                     Happy Birthday Divu, My Beautiful Love 💖😘🥳
-                </motion.h1>
+                </motion.h1> */}
             </div>
+            <span className="block font-['Alex Brush',cursive] text-[19px] text-green-900 text-center">
+                🌹 27 August — The Day My Heart Found Its Home 🌹
+            </span>
+
+
             <img
                 src={HBD}
                 alt="hbd" loading="lazy"
