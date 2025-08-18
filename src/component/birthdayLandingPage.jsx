@@ -10,9 +10,15 @@ import "@fontsource/playfair-display";
 import "@fontsource/alex-brush";
 import HBD from "../../public/image/hbd.png";
 import WishCard from "./Card";
-import CoverPhoto from "../../public/image/CoverPhoto.jpeg";
+import CoverPhoto1 from "../../public/image/CoverPhoto1.jpeg";
+import CoverPhoto2 from "../../public/image/CoverPhoto2.jpeg";
+import CoverPhoto3 from "../../public/image/CoverPhoto3.jpeg";
+import CoverPhoto4 from "../../public/image/CoverPhoto4.jpeg";
+import CoverPhoto5 from "../../public/image/CoverPhoto5.jpeg";
+
 import { FaHeart, FaLeaf, FaRegKissWinkHeart } from "react-icons/fa";
 import { GiRose } from "react-icons/gi";
+// import CoverPhoto1 from
 
 const photos = [
     { image: Image, caption: "Happy birthday Apne Pariwar ki sabse Achi beti Divya ko 🥰" },
@@ -25,6 +31,8 @@ const photos = [
     { image: Image, caption: "Happy birthday Duniya ki sabse Sundar ladki ko 🤩" },
     { image: Image, caption: "Happy birthday pyar ko pyar se nibanne wali Divya ko 🥺" }
 ];
+
+
 
 const emojis = ["❤️", "🌹", "🤍", "😍", "💖", "😘", "💓", "🎉", "🥳", "💖"];
 
@@ -76,8 +84,20 @@ export default function BirthdaySurprise() {
     const { width, height } = useWindowSize();
     const [showSurprise, setShowSurprise] = useState(false);
     const [emojiRain, setEmojiRain] = useState(false);
-    const [showPopup, setShowPopup] = useState(false); // popup state
+    const [showPopup, setShowPopup] = useState(false);
+    const [cp, setCp] = useState(null);
+    const [index, setIndex] = useState(0);
+    const [fade, setFade] = useState(true);
     const navigate = useNavigate();
+
+    // const images = [CoverPhoto1, CoverPhoto2, CoverPhoto3, CoverPhoto4, CoverPhoto5];
+    const images = [
+        { src: CoverPhoto1, text: "You are best" },
+        { src: CoverPhoto2, text: "You are bestter" },
+        { src: CoverPhoto3, text: "You are bestterte" },
+        { src: CoverPhoto4, text: "You are bestvvvv" },
+        { src: CoverPhoto5, text: "You are bestrrrrrr" }
+    ];
 
     useEffect(() => {
         setShowSurprise(true);
@@ -107,6 +127,13 @@ export default function BirthdaySurprise() {
         setShowSurprise(true);
         navigate("/its_Your_birthday");
     };
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIndex((prev) => (prev + 1) % images.length);
+        }, 4000); // change every 4s
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <div
@@ -145,16 +172,41 @@ export default function BirthdaySurprise() {
             )} */}
 
             {/* Background Section */}
-            <div
-                className="relative w-full flex items-center justify-center py-10"
-                style={{
-                    minHeight: "550px",
-                    backgroundImage: `url(${CoverPhoto})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat"
-                }}
-            ></div>
+            <div className="relative w-full flex items-center justify-center py-10 min-h-[550px] rounded-2xl overflow-hidden border-4 border-pink-300/70">
+                {images.map((img, i) => (
+                    <div
+                        key={i}
+                        className={`absolute inset-0 transition-opacity duration-2000 ease-in-out`}
+                        style={{
+                            backgroundImage: `url(${img.src})`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            backgroundRepeat: "no-repeat",
+                            opacity: index === i ? 1 : 0, // smooth crossfade
+                        }}
+                    />
+                ))}
+
+                {/* Bottom text overlay */}
+                {images.map((img, i) => (
+                    <div
+                        key={i + "-text"}
+                        className="absolute bottom-6 left-3/4 transform -translate-x-1/2"
+                        style={{
+                            opacity: index === i ? 1 : 0,
+                            transform: index === i
+                                ? "translate(-50%, 0)"
+                                : "translate(-50%, 20px)",
+                            transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
+                        }}
+                    >
+                        <div className="text-white text-2xl font-bold bg-black/40 px-5 py-2 rounded-xl shadow-lg">
+                            {img.text}
+                        </div>
+                    </div>
+                ))}
+            </div>
+
 
             <span className="block font-['Dancing Script',cursive] text-[10px] text-green-900 text-center bg-pink-200/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
                 🌹 27 August — The Day My Heart Found Its Home 🌹
