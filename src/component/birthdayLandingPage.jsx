@@ -11,6 +11,8 @@ import "@fontsource/alex-brush";
 import HBD from "../../public/image/hbd.png";
 import WishCard from "./Card";
 import CoverPhoto from "../../public/image/CoverPhoto.jpeg";
+import { FaHeart, FaLeaf, FaRegKissWinkHeart } from "react-icons/fa";
+import { GiRose } from "react-icons/gi";
 
 const photos = [
     { image: Image, caption: "Happy birthday Apne Pariwar ki sabse Achi beti Divya ko 🥰" },
@@ -24,42 +26,51 @@ const photos = [
     { image: Image, caption: "Happy birthday pyar ko pyar se nibanne wali Divya ko 🥺" }
 ];
 
-const emojis = ["❤️", "💖", "🤍", "🌹", "😍", "😘", "🎉", "🥳", "💓", "💘"];
+const emojis = ["❤️", "🌹", "🤍", "😍", "💖", "😘", "💓", "🎉", "🥳", "💖"];
 
 const EmojiRain = () => {
     const { width, height } = useWindowSize();
+    const [active, setActive] = useState(true);
+
+    useEffect(() => {
+        // Stop rain after 6s
+        const timer = setTimeout(() => setActive(false), 6000);
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <div className="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-50">
-            {Array.from({ length: 50 }).map((_, i) => {
-                const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-                const left = Math.random() * width;
-                const delay = Math.random() * 5;
-                const duration = 4 + Math.random() * 3;
-                const size = 24 + Math.random() * 24;
+            {active &&
+                Array.from({ length: 50 }).map((_, i) => {
+                    const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+                    const left = Math.random() * width;
+                    const delay = Math.random() * 5;
+                    const duration = 4 + Math.random() * 3;
+                    const size = 24 + Math.random() * 24;
 
-                return (
-                    <motion.div
-                        key={i}
-                        initial={{ y: -50, x: left, opacity: 0 }}
-                        animate={{ y: height + 50, opacity: 1 }}
-                        transition={{
-                            duration: duration,
-                            delay: delay,
-                            repeat: Infinity,
-                            ease: "linear"
-                        }}
-                        style={{
-                            position: "absolute",
-                            fontSize: `${size}px`
-                        }}
-                    >
-                        {randomEmoji}
-                    </motion.div>
-                );
-            })}
+                    return (
+                        <motion.div
+                            key={i}
+                            initial={{ y: -50, x: left, opacity: 0 }}
+                            animate={{ y: height + 50, opacity: [0, 1, 1, 0] }} // fade in → fall → fade out
+                            transition={{
+                                duration: duration,
+                                delay: delay,
+                                ease: "linear",
+                            }}
+                            style={{
+                                position: "absolute",
+                                fontSize: `${size}px`,
+                            }}
+                        >
+                            {randomEmoji}
+                        </motion.div>
+                    );
+                })}
         </div>
     );
 };
+
 
 export default function BirthdaySurprise() {
     const { width, height } = useWindowSize();
@@ -104,12 +115,12 @@ export default function BirthdaySurprise() {
         >
 
             {showSurprise && (
-                <Confetti width={width} height={height} numberOfPieces={600} recycle={false} />
+                <Confetti width={width} height={height} numberOfPieces={400} recycle={false} />
             )}
             {emojiRain && <EmojiRain />}
 
             {/* 🎯 Popup */}
-            {showPopup && (
+            {/* {showPopup && (
                 <motion.div
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -131,7 +142,7 @@ export default function BirthdaySurprise() {
                         </p>
                     </div>
                 </motion.div>
-            )}
+            )} */}
 
             {/* Background Section */}
             <div
@@ -275,22 +286,63 @@ export default function BirthdaySurprise() {
                 <span>Lo ab pyar se Divya special smile karo or ise touch karo.</span>
             </motion.h3>
 
+
             <motion.button
                 onClick={handleClick}
-                whileHover={{ scale: 1.05 }}
+                // whileHover={{ scale: 1.08, rotate: 1 }}
                 whileTap={{ scale: 0.95 }}
-                className="relative inline-block text-white font-bold py-3 px-12 rounded-full shadow-lg
-                 bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600
-                 hover:from-pink-500 hover:via-pink-600 hover:to-pink-700
-                 transition-all duration-300 ease-out focus:outline-none focus:ring-4 focus:ring-pink-300"
+                className="relative inline-flex items-center justify-center overflow-hidden text-white font-bold py-3 px-12 rounded-full shadow-xl
+             bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600
+             hover:from-pink-500 hover:via-pink-600 hover:to-pink-700
+             transition-all duration-500 ease-out focus:outline-none focus:ring-4 focus:ring-pink-300"
                 style={{
                     textDecoration: "none",
-                    boxShadow: "0 8px 20px rgba(255, 105, 180, 0.4)"
+                    boxShadow: "0 10px 25px rgba(255, 105, 180, 0.6)",
                 }}
             >
-                <span className="relative z-10">😊 Touch with Smile</span>
-                <span className="absolute inset-0 rounded-full bg-pink-400 opacity-30 blur-lg animate-pulse"></span>
+                {/* Button Text */}
+                <span className="relative z-10 text-lg">🌹 Touch with Love 🌹</span>
+
+                {/* Glow effect */}
+                <span className="absolute inset-0 rounded-full bg-pink-400 opacity-30 blur-xl animate-pulse"></span>
+
+                {/* Floating Flowers / Hearts */}
+                <motion.span
+                    initial={{ y: 0 }}
+                    animate={{ y: [-8, 0, -8] }}
+                    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                    className="absolute -top-6 -left-6 text-2xl text-pink-500"
+                >
+                    <GiRose />
+                </motion.span>
+
+                <motion.span
+                    initial={{ y: 0 }}
+                    animate={{ y: [8, 0, 8] }}
+                    transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                    className="absolute -top-6 -right-6 text-2xl text-red-500"
+                >
+                    <FaHeart />
+                </motion.span>
+
+                <motion.span
+                    initial={{ x: 0 }}
+                    animate={{ x: [-6, 0, -6] }}
+                    transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
+                    className="absolute -bottom-6 -left-4 text-xl text-green-600"
+                >
+                    <FaLeaf />
+                </motion.span>
+
+                <motion.span
+                    initial={{ x: 0 }}
+                    animate={{ x: [6, 0, 6] }}
+                    transition={{ repeat: Infinity, duration: 3.2, ease: "easeInOut" }}
+                    className="absolute -bottom-6 -right-4 text-2xl text-pink-400"
+                >
+                    <FaRegKissWinkHeart />
+                </motion.span>
             </motion.button>
         </div>
-    );
+    )
 }
