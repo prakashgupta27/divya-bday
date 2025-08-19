@@ -2,22 +2,24 @@ import React, { useEffect, useState } from "react";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import { useWindowSize } from "react-use";
-import image from "../../public/image/a.png";
+import image from "../../public/image/BNW.jpeg";
 import { useNavigate } from "react-router-dom";
 import Image from "../../public/image/image1.png";
 import "@fontsource/dancing-script";
 import "@fontsource/playfair-display";
 import "@fontsource/alex-brush";
 import HBD from "../../public/image/hbd.png";
-import WishCard from "./Card";
 import CoverPhoto1 from "../../public/image/CoverPhoto1.jpeg";
 import CoverPhoto2 from "../../public/image/CoverPhoto2.jpeg";
 import CoverPhoto3 from "../../public/image/CoverPhoto3.jpeg";
 import CoverPhoto4 from "../../public/image/CoverPhoto4.jpeg";
 import CoverPhoto5 from "../../public/image/CoverPhoto5.jpeg";
+import CoverPhoto6 from "../../public/image/CoverPhoto6.jpeg"
 
 import { FaHeart, FaLeaf, FaRegKissWinkHeart } from "react-icons/fa";
 import { GiRose } from "react-icons/gi";
+import ImageComponet from "./ImageComponent";
+import PhotoCard from "./PhotoCard";
 // import CoverPhoto1 from
 
 const photos = [
@@ -92,11 +94,16 @@ export default function BirthdaySurprise() {
 
     // const images = [CoverPhoto1, CoverPhoto2, CoverPhoto3, CoverPhoto4, CoverPhoto5];
     const images = [
-        { src: CoverPhoto1, text: "You are best" },
-        { src: CoverPhoto2, text: "You are bestter" },
-        { src: CoverPhoto3, text: "You are bestterte" },
-        { src: CoverPhoto4, text: "You are bestvvvv" },
-        { src: CoverPhoto5, text: "You are bestrrrrrr" }
+        { src: CoverPhoto1, text: "तुम हो तो सुबह नई है" },
+        { src: CoverPhoto2, text: "तुम हो तो शामें हसीन हैं" },
+        { src: CoverPhoto3, text: "एक दुनिया सपनों सी है, " },
+        { src: CoverPhoto4, text: "तुम हो तो इस पे यकीन है " },
+        { src: CoverPhoto5, text: "तुम हो तो सब अच्छा है" },
+        { src: CoverPhoto6, text: "तुम हो तो सब अच्छा है" },
+
+        // { src: CoverPhoto5, text: "तुम हो तो वक्त थमा है"},
+        // { src: CoverPhoto5, text: "तुम हो तो ये लम्हा है,"},
+        // { src: CoverPhoto5, text: "तुम हो तो इस लम्हे में सदा है"}    
     ];
 
     useEffect(() => {
@@ -170,49 +177,8 @@ export default function BirthdaySurprise() {
                     </div>
                 </motion.div>
             )} */}
-
-            {/* Background Section */}
-            <div className="relative w-full flex items-center justify-center py-10 min-h-[550px] rounded-2xl overflow-hidden border-4 border-pink-300/70">
-                {images.map((img, i) => (
-                    <div
-                        key={i}
-                        className={`absolute inset-0 transition-opacity duration-2000 ease-in-out`}
-                        style={{
-                            backgroundImage: `url(${img.src})`,
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                            backgroundRepeat: "no-repeat",
-                            opacity: index === i ? 1 : 0, // smooth crossfade
-                        }}
-                    />
-                ))}
-
-                {/* Bottom text overlay */}
-                {images.map((img, i) => (
-                    <div
-                        key={i + "-text"}
-                        className="absolute bottom-6 left-3/4 transform -translate-x-1/2"
-                        style={{
-                            opacity: index === i ? 1 : 0,
-                            transform: index === i
-                                ? "translate(-50%, 0)"
-                                : "translate(-50%, 20px)",
-                            transition: "opacity 1s ease-in-out, transform 1s ease-in-out",
-                        }}
-                    >
-                        <div className="text-white text-2xl font-bold bg-black/40 px-5 py-2 rounded-xl shadow-lg">
-                            {img.text}
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-
-            <span className="block font-['Dancing Script',cursive] text-[10px] text-green-900 text-center bg-pink-200/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
-                🌹 27 August — The Day My Heart Found Its Home 🌹
-            </span>
-
-            <img src={HBD} alt="hbd" loading="lazy" style={{ textDecoration: "none" }} />
+            <ImageComponet images={images} />
+            <img src={HBD} alt="hbd" loading="lazy" style={{ textDecoration: "none", paddingTop: "20px" }} />
 
             <motion.p
                 className="max-w-xl mx-auto mb-14 text-xl sm:text-2xl text-green-1100 font-semibold"
@@ -249,7 +215,7 @@ export default function BirthdaySurprise() {
             </motion.p>
 
             {/* Photo gallery */}
-            <motion.div
+            {/* <motion.div
                 className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-14 max-w-6xl mx-auto"
                 initial="hidden"
                 animate="visible"
@@ -267,7 +233,9 @@ export default function BirthdaySurprise() {
                         <WishCard key={index} image={src.image} caption={src.caption} />
                     ))}
                 </div>
-            </motion.div>
+            </motion.div> */}
+
+            <PhotoCard photos={photos}/>
 
             {/* Personal messages */}
             <motion.div
@@ -285,7 +253,7 @@ export default function BirthdaySurprise() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 1 }}
                 >
-                    Why I Love You ❤️
+                 I Love You ❤️
                 </motion.h2>
 
                 <motion.p
@@ -295,11 +263,11 @@ export default function BirthdaySurprise() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6, duration: 1 }}
                 >
-                    Every moment we share is a treasure. Your smile brightens my darkest days, your kindness is a gift to everyone around you, and your laugh is the sweetest melody. <br />You are my inspiration, my best friend, and my forever love.
+                    From the moment you came into my life, from the moment you became mine, your love has made me feel so truly special. I know I may not be worthy of your love, yet you trusted me, gave me your love, and stood by my side.<br/><span style={{color:"blue"}}> 🖤 I love you Divya 🤍</span>
                 </motion.p>
 
                 <motion.div
-                    className="mt-10 overflow-hidden rounded-[2rem] shadow-2xl ring-4 ring-pink-100 hover:ring-pink-300 transition duration-300"
+                    className="mt-5 overflow-hidden rounded-[2rem] shadow-2xl ring-4 ring-pink-100 hover:ring-pink-300 transition duration-300"
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1, duration: 1 }}
@@ -315,7 +283,7 @@ export default function BirthdaySurprise() {
             </motion.div>
 
             <motion.div
-                className="max-w-3xl mx-auto px-4 py-8 bg-pink-50 rounded-3xl shadow-md mb-20"
+                className="max-w-3xl mx-auto px-4 py-1 bg-pink-50 rounded-3xl shadow-md mb-15"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 0.3 }}
