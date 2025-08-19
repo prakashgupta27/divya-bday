@@ -8,7 +8,7 @@ const ImageComponent = ({ images }) => {
     useEffect(() => {
         const interval = setInterval(() => {
             setIndex((prev) => (prev + 1) % images.length);
-        }, 3000);
+        }, 3500);
         return () => clearInterval(interval);
     }, [images.length]);
 
