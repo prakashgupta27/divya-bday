@@ -3,17 +3,16 @@ import WishCard from "./Card";
 import { useCallback } from "react";
 
 const PhotoCard = ({ photos }) => {
-  // ✅ memoized render function
   const renderWishCard = useCallback(
     (src, index) => (
       <WishCard key={index} image={src.image} caption={src.caption} />
     ),
-    [] // runs once, won’t recreate unless dependencies change
+    [] 
   );
 
   return (
     <motion.div
-      className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-14 max-w-6xl mx-auto"
+      className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mb-14 max-w-6xl mx-auto"
       initial="hidden"
       animate="visible"
       variants={{

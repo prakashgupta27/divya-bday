@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import { useWindowSize } from "react-use";
-import image from "../../public/image/BNW.jpeg";
+import image from "../../public/image/SingleImage.jpeg";
 import { useNavigate } from "react-router-dom";
 import Image from "../../public/image/image1.png";
 import "@fontsource/dancing-script";
@@ -209,33 +209,9 @@ export default function BirthdaySurprise() {
                     कब ऐसा मैंने सोचा था।
                     हाँ, तुम बिल्कुल वैसी हो,
                     जैसा मैंने सोचा था।
-                    चाँद सी महबूबा हो मेरी,
-                    कब ऐसा मैंने सोचा था..."
                 </motion.p>
             </motion.p>
-
-            {/* Photo gallery */}
-            {/* <motion.div
-                className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-14 max-w-6xl mx-auto"
-                initial="hidden"
-                animate="visible"
-                variants={{
-                    hidden: { opacity: 0, y: 30 },
-                    visible: {
-                        opacity: 1,
-                        y: 0,
-                        transition: { staggerChildren: 0.15, delayChildren: 0.6 }
-                    }
-                }}
-            >
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-                    {photos.map((src, index) => (
-                        <WishCard key={index} image={src.image} caption={src.caption} />
-                    ))}
-                </div>
-            </motion.div> */}
-
-            <PhotoCard photos={photos}/>
+            <PhotoCard photos={photos} />
 
             {/* Personal messages */}
             <motion.div
@@ -245,15 +221,16 @@ export default function BirthdaySurprise() {
                 transition={{ duration: 1 }}
             >
                 <div className="absolute inset-0 -z-10 blur-3xl opacity-40 bg-gradient-to-br from-pink-200 via-blue-100 to-white rounded-3xl" />
-
                 <motion.h2
-                    className="text-4xl sm:text-5xl font-bold mb-8 text-center bg-gradient-to-r from-pink-500 via-blue-400 to-pink-500 text-transparent bg-clip-text"
-                    style={{ fontFamily: "'Dancing Script', cursive" }}
-                    initial={{ opacity: 0, y: -30 }}
+                    initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3, duration: 1 }}
+                    transition={{ duration: 1 }}
+                    className="text-2xl sm:text-3xl font-semibold text-center mb-6 
+                 bg-gradient-to-r from-red-500 via-red-400 to-pink-500 
+                 text-transparent bg-clip-text"
+                    style={{ fontFamily: "'Dancing Script', cursive" }}
                 >
-                 I Love You ❤️
+                    🖤 I love you Divya 🤍
                 </motion.h2>
 
                 <motion.p
@@ -263,7 +240,7 @@ export default function BirthdaySurprise() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6, duration: 1 }}
                 >
-                    From the moment you came into my life, from the moment you became mine, your love has made me feel so truly special. I know I may not be worthy of your love, yet you trusted me, gave me your love, and stood by my side.<br/><span style={{color:"blue"}}> 🖤 I love you Divya 🤍</span>
+                    From the moment you came into my life, from the moment you became mine, your love has made me feel so truly special. I know I may not be worthy of your love, yet you trusted me, gave me your love, and stood by my side.<br />
                 </motion.p>
 
                 <motion.div
@@ -276,7 +253,7 @@ export default function BirthdaySurprise() {
                     <img
                         src={image}
                         alt="Love Memory"
-                        className="w-full h-64 sm:h-80 object-cover brightness-95 hover:brightness-105 transition duration-500 ease-in-out"
+                        className="w-full h-74 sm:h-80 object-cover brightness-95 hover:brightness-105 transition duration-500 ease-in-out"
                         loading="lazy"
                     />
                 </motion.div>
