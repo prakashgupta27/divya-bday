@@ -20,7 +20,6 @@ import { FaHeart, FaLeaf, FaRegKissWinkHeart } from "react-icons/fa";
 import { GiRose } from "react-icons/gi";
 import ImageComponet from "./ImageComponent";
 import PhotoCard from "./PhotoCard";
-// import CoverPhoto1 from
 
 const photos = [
     { image: Image, caption: "Happy birthday Apne Pariwar ki sabse Achi beti Divya ko 🥰" },
@@ -34,8 +33,6 @@ const photos = [
     { image: Image, caption: "Happy birthday pyar ko pyar se nibanne wali Divya ko 🥺" }
 ];
 
-
-
 const emojis = ["❤️", "🌹", "🤍", "😍", "💖", "😘", "💓", "🎉", "🥳", "💖"];
 
 const EmojiRain = () => {
@@ -43,7 +40,6 @@ const EmojiRain = () => {
     const [active, setActive] = useState(true);
 
     useEffect(() => {
-        // Stop rain after 6s
         const timer = setTimeout(() => setActive(false), 6000);
         return () => clearTimeout(timer);
     }, []);
@@ -92,18 +88,13 @@ export default function BirthdaySurprise() {
     const [fade, setFade] = useState(true);
     const navigate = useNavigate();
 
-    // const images = [CoverPhoto1, CoverPhoto2, CoverPhoto3, CoverPhoto4, CoverPhoto5];
     const images = [
         { src: CoverPhoto1, text: "तुम हो तो सुबह नई है" },
         { src: CoverPhoto2, text: "तुम हो तो शामें हसीन हैं" },
         { src: CoverPhoto3, text: "एक दुनिया सपनों सी है, " },
         { src: CoverPhoto4, text: "तुम हो तो इस पे यकीन है " },
         { src: CoverPhoto5, text: "तुम हो तो सब अच्छा है" },
-        { src: CoverPhoto6, text: "तुम हो तो सब अच्छा है" },
-
-        // { src: CoverPhoto5, text: "तुम हो तो वक्त थमा है"},
-        // { src: CoverPhoto5, text: "तुम हो तो ये लम्हा है,"},
-        // { src: CoverPhoto5, text: "तुम हो तो इस लम्हे में सदा है"}    
+        { src: CoverPhoto6, text: "तुम हो तो सब अच्छा है" },   
     ];
 
     useEffect(() => {
@@ -112,17 +103,13 @@ export default function BirthdaySurprise() {
 
     useEffect(() => {
         setEmojiRain(true);
-
-        // End emoji rain after 6s -> then show popup
         const rainTimer = setTimeout(() => {
             setEmojiRain(false);
             setShowPopup(true);
         }, 6000);
-
-        // Hide popup 3s after showing
         const popupTimer = setTimeout(() => {
             setShowPopup(false);
-        }, 9000); // 6s + 3s
+        }, 9000);
 
         return () => {
             clearTimeout(rainTimer);
@@ -138,7 +125,7 @@ export default function BirthdaySurprise() {
     useEffect(() => {
         const interval = setInterval(() => {
             setIndex((prev) => (prev + 1) % images.length);
-        }, 4000); // change every 4s
+        }, 4000);
         return () => clearInterval(interval);
     }, []);
 
@@ -147,7 +134,6 @@ export default function BirthdaySurprise() {
             className="min-h-screen overflow-x-hidden bg-gradient-to-b from-pink-50 via-rose-100 to-blue-50 text-center px-6 py-6 text-gray-900 select-none"
             style={{ fontFamily: "'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" }}
         >
-
             {showSurprise && (
                 <Confetti width={width} height={height} numberOfPieces={400} recycle={false} />
             )}

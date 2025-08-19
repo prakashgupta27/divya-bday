@@ -29,33 +29,29 @@ const ImageComponent = ({ images }) => {
                         }}
                     />
                 ))}
-
-                {/* Text Overlay */}
                 {images.map((img, i) => (
-                    <div
-                        key={i + "-text"}
-                        className="absolute bottom-6 left-3/4 transform -translate-x-1/2 pl-2.5"
-                        style={{
-                            opacity: index === i ? 1 : 0,
-                            transform:
-                                index === i
-                                    ? "translate(-50%, 0)"
-                                    : "translate(-50%, 20px)",
-                            transition:
-                                "opacity 1s ease-in-out, transform 1s ease-in-out",
-                        }}
-                    >
+                    <span style={{ paddingTop: "200px" }}>
                         <motion.div
-                            className="max-w-3xl mx-auto px-4 py-1 bg-pink-50 rounded-3xl shadow-md mb-15"
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 1, delay: 0.3 }}
-                            style={{ textDecoration: "none", fontStyle: "italic", color: "#d6336c" }}
+                            key={i + "-text"}
+                            className="absolute inset-0 flex items-center justify-center text-center px-4"
+                            style={{
+                                paddingTop:"470px",
+                                opacity: index === i ? 1 : 0,
+                                transition: "opacity 1s ease-in-out",
+                            }}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={index === i ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                            transition={{ duration: 1 }}
                         >
-                            <p>{img.text}</p>
+                            <div className="bg-pink-50/80 px-6 py-3 rounded-2xl shadow-lg">
+                                <p className="font-['Dancing Script',cursive] text-xl md:text-2xl font-semibold text-[#d6336c] italic">
+                                    {img.text}
+                                </p>
+                            </div>
                         </motion.div>
-                    </div>
+                    </span>
                 ))}
+
             </div>
 
             <span className="block font-['Dancing Script',cursive] text-[10px] text-green-900 text-center bg-pink-200/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
