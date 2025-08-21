@@ -96,7 +96,6 @@ function BirthdayMemory() {
             >
                 MY HEART SAYING TO MY <span className="text-red-600">BIRTHDAY GIRL</span>
             </motion.a>
-
         </motion.div>
     )
 }

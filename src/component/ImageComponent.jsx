@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import HHBBDD from "../../public/image/FHBD.png";
+
 
 const ImageComponent = ({ images }) => {
     const [index, setIndex] = useState(0);
@@ -13,7 +15,7 @@ const ImageComponent = ({ images }) => {
     }, [images.length]);
 
     return (
-        <>
+        <> <img src={HHBBDD} alt="hbd" loading="lazy" style={{ textDecoration: "none", paddingTop: "20px" , paddingBottom:"40px"}} />
             <div className="relative w-full flex items-center justify-center py-10 min-h-[550px] rounded-2xl overflow-hidden border-4 border-pink-300/70">
                 {/* Background Images */}
                 {images.map((img, i) => (
@@ -35,7 +37,7 @@ const ImageComponent = ({ images }) => {
                             key={i + "-text"}
                             className="absolute inset-0 flex items-center justify-center text-center px-4"
                             style={{
-                                paddingTop:"470px",
+                                paddingTop: "470px",
                                 opacity: index === i ? 1 : 0,
                                 transition: "opacity 1s ease-in-out",
                             }}

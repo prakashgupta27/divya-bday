@@ -91,10 +91,10 @@ export default function BirthdaySurprise() {
     const images = [
         { src: CoverPhoto1, text: "तुम हो तो सुबह नई है ❤️" },
         { src: CoverPhoto2, text: "तुम हो तो शामें हसीन हैं 🧡" },
-        { src: CoverPhoto3, text: "एक दुनिया सपनों सी है 💙"},
+        { src: CoverPhoto3, text: "एक दुनिया सपनों सी है 💙" },
         { src: CoverPhoto4, text: "तुम हो तो इस पे यकीन है 💚" },
-        { src: CoverPhoto5, text: "तुम हो तो सब अच्छा है 💛"},
-        { src: CoverPhoto6, text: "तुम हो तो वक्त थमा है 🤎" },   
+        { src: CoverPhoto5, text: "तुम हो तो सब अच्छा है 💛" },
+        { src: CoverPhoto6, text: "तुम हो तो वक्त थमा है 🤎" },
     ];
 
     useEffect(() => {
@@ -140,29 +140,32 @@ export default function BirthdaySurprise() {
             {emojiRain && <EmojiRain />}
 
             {/* 🎯 Popup */}
-            {/* {showPopup && (
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.5 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="fixed inset-0 flex items-center justify-center z-[999]"
-                >
-                    <div className="bg-white/80 backdrop-blur-lg px-10 py-6 rounded-3xl shadow-2xl border border-pink-200 flex flex-col items-center">
-                        <motion.h1
-                            className="text-3xl sm:text-5xl font-bold text-pink-600 drop-shadow-lg"
-                            style={{ fontFamily: "'Alex Brush', cursive" }}
-                            animate={{ scale: [1, 1.1, 1] }}
-                            transition={{ repeat: Infinity, duration: 1.5 }}
-                        >
-                            🎉 Happy Birthday Divya 💖
-                        </motion.h1>
-                        <p className="text-gray-700 mt-2 font-semibold">
-                            Today is all about YOU! ✨
-                        </p>
-                    </div>
-                </motion.div>
-            )} */}
+            {showPopup && (
+                <>
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.5 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        className="fixed inset-0 flex items-center justify-center z-[999]"
+                    >
+
+                        <div className="bg-white/80 backdrop-blur-lg px-10 py-6 rounded-3xl shadow-2xl border border-pink-200 flex flex-col items-center">
+                            <motion.h1
+                                className="text-3xl sm:text-5xl font-bold text-pink-600 drop-shadow-lg"
+                                style={{ fontFamily: "'Alex Brush', cursive" }}
+                                animate={{ scale: [1, 1.1, 1] }}
+                                transition={{ repeat: Infinity, duration: 1.5 }}
+                            >
+                                🎉 Happy Birthday Divya 💖
+                            </motion.h1>
+                            <p className="text-gray-700 mt-2 font-semibold">
+                                Today is all about YOU! ✨
+                            </p>
+                        </div>
+                    </motion.div>
+                </>
+            )}
             <ImageComponet images={images} />
             <img src={HBD} alt="hbd" loading="lazy" style={{ textDecoration: "none", paddingTop: "20px" }} />
 
@@ -229,7 +232,7 @@ export default function BirthdaySurprise() {
                     From the moment you came into my life, from the moment you became mine, your love has made me feel so truly special. I know I may not be worthy of your love, yet you trusted me, gave me your love, and stood by my side.<br />
                 </motion.p>
 
-                <motion.div
+                {/* <motion.div
                     className="mt-5 overflow-hidden rounded-[2rem] shadow-2xl ring-4 ring-pink-100 hover:ring-pink-300 transition duration-300"
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -242,7 +245,7 @@ export default function BirthdaySurprise() {
                         className="w-full h-74 sm:h-80 object-cover brightness-95 hover:brightness-105 transition duration-500 ease-in-out"
                         loading="lazy"
                     />
-                </motion.div>
+                </motion.div> */}
             </motion.div>
 
             <motion.div
