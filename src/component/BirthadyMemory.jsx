@@ -1,5 +1,8 @@
 import { useEffect } from "react";
 import Image from "../../public/image/image1.png";
+import Image2 from "../../public/image/image2.png";
+import Image3 from "../../public/image/image3.png";
+
 import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
 
@@ -7,12 +10,12 @@ function BirthdayMemory() {
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "smooth" });
-        setTimeout(()=>{
+        setTimeout(() => {
             confetti({
-            particleCount: 200,
-            spread: 70,
-            origin: { y: 0.6 },
-        });
+                particleCount: 200,
+                spread: 70,
+                origin: { y: 0.6 },
+            });
         }, 1800)
     }, []);
     return (
@@ -46,18 +49,54 @@ function BirthdayMemory() {
             </motion.p>
 
             <motion.div
-                className="w-full h-screen overflow-hidden"
+                className="space-y-12" // 👈 adds gap between children
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 1 }}
             >
-                <img
-                    src={Image}
-                    alt="Love Memory"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                />
+                <div className="w-full h-screen overflow-hidden">
+                    <img
+                        src={Image}
+                        alt="Love Memory"
+                        className="w-full h-full object-cover rounded-2xl shadow-lg"
+                        loading="lazy"
+                    />
+                </div>
+
+                <div className="w-full h-screen overflow-hidden">
+                    <img
+                        src={Image2}
+                        alt="Love Memory"
+                        className="w-full h-full object-cover rounded-2xl shadow-lg"
+                        loading="lazy"
+                    />
+                </div>
+
+                <div className="w-full h-screen overflow-hidden">
+                    <img
+                        src={Image3}
+                        alt="Love Memory"
+                        className="w-full h-full object-cover rounded-2xl shadow-lg"
+                        loading="lazy"
+                    />
+                </div>
             </motion.div>
+            <motion.a
+                href="https://youtu.be/71z3fKIHPaM?si=LsBvST-30tRvciuh"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-center mt-16 text-1xl font-extrabold 
+                    bg-gradient-to-r from-pink-500 via-blue-400 to-pink-500 
+                    bg-clip-text text-transparent
+                    hover:scale-110 transition-transform duration-300"
+                style={{ fontFamily: "'Montserrat', sans-serif" }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.2, duration: 1 }}
+            >
+                MY HEART SAYING TO MY <span className="text-red-600">BIRTHDAY GIRL</span>
+            </motion.a>
+
         </motion.div>
     )
 }
