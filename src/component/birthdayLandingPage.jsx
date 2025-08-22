@@ -15,11 +15,13 @@ import CoverPhoto3 from "../../public/image/CoverPhoto3.jpeg";
 import CoverPhoto4 from "../../public/image/CoverPhoto4.jpeg";
 import CoverPhoto5 from "../../public/image/CoverPhoto5.jpeg";
 import CoverPhoto6 from "../../public/image/CoverPhoto6.jpeg"
+import { Heart, PartyPopper } from "lucide-react"
 
 import { FaHeart, FaLeaf, FaRegKissWinkHeart } from "react-icons/fa";
 import { GiRose } from "react-icons/gi";
 import ImageComponet from "./ImageComponent";
 import PhotoCard from "./PhotoCard";
+import FlowerRain from "./FlowerRain";
 
 const photos = [
     { image: Image, caption: "Happy birthday Apne Pariwar ki sabse Achi beti Divya ko 🥰" },
@@ -33,49 +35,71 @@ const photos = [
     { image: Image, caption: "Happy birthday pyar ko pyar se nibanne wali Divya ko 🥺" }
 ];
 
-const emojis = ["❤️", "🌹", "🤍", "😍", "💖", "😘", "💓", "🎉", "🥳", "💖"];
 
-const EmojiRain = () => {
-    const { width, height } = useWindowSize();
-    const [active, setActive] = useState(true);
+// const EmojiRain = () => {
+//     const { width, height } = useWindowSize();
+//     const [active, setActive] = useState(true);
 
-    useEffect(() => {
-        const timer = setTimeout(() => setActive(false), 6000);
-        return () => clearTimeout(timer);
-    }, []);
+//     useEffect(() => {
+//         const timer = setTimeout(() => setActive(false), 6000);
+//         return () => clearTimeout(timer);
+//     }, []);
 
-    return (
-        <div className="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-50">
-            {active &&
-                Array.from({ length: 50 }).map((_, i) => {
-                    const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-                    const left = Math.random() * width;
-                    const delay = Math.random() * 5;
-                    const duration = 4 + Math.random() * 3;
-                    const size = 24 + Math.random() * 24;
+//     return (
+//         <div className="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-50">
+//             {active &&
+//                 Array.from({ length: 50 }).map((_, i) => {
+//                     const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+//                     const left = Math.random() * width;
+//                     const delay = Math.random() * 5;
+//                     const duration = 4 + Math.random() * 3;
+//                     const size = 24 + Math.random() * 24;
 
-                    return (
-                        <motion.div
-                            key={i}
-                            initial={{ y: -50, x: left, opacity: 0 }}
-                            animate={{ y: height + 50, opacity: [0, 1, 1, 0] }} // fade in → fall → fade out
-                            transition={{
-                                duration: duration,
-                                delay: delay,
-                                ease: "linear",
-                            }}
-                            style={{
-                                position: "absolute",
-                                fontSize: `${size}px`,
-                            }}
-                        >
-                            {randomEmoji}
-                        </motion.div>
-                    );
-                })}
-        </div>
-    );
-};
+//                     return (
+//                         <motion.div
+//                             key={i}
+//                             initial={{ y: -50, x: left, opacity: 0 }}
+//                             animate={{ y: height + 50, opacity: [0, 1, 1, 0] }} // fade in → fall → fade out
+//                             transition={{
+//                                 duration: duration,
+//                                 delay: delay,
+//                                 ease: "linear",
+//                             }}
+//                             style={{
+//                                 position: "absolute",
+//                                 fontSize: `${size}px`,
+//                             }}
+//                         >
+//                             {randomEmoji}
+//                         </motion.div>
+//                     );
+//                 })}
+//         </div>
+//     );
+// };
+
+
+// const BalloonEvents = ({ count = 10 }) => {
+//   const [balloons, setBalloons] = useState([]);
+
+//   useEffect(() => {
+//     const temp = Array.from({ length: count }).map((_, i) => ({
+//       id: i,
+//       x: Math.random() * 90,
+//       delay: Math.random() * 5,
+//       color: colors[Math.floor(Math.random() * colors.length)],
+//     }));
+//     setBalloons(temp);
+//   }, [count]);
+
+//   return (
+//     <div className="fixed inset-0 pointer-events-none overflow-hidden">
+//       {balloons.map((b) => (
+//         <Balloon key={b.id} x={b.x} delay={b.delay} color={b.color} />
+//       ))}
+//     </div>
+//   );
+// };
 
 
 export default function BirthdaySurprise() {
@@ -135,37 +159,12 @@ export default function BirthdaySurprise() {
             style={{ fontFamily: "'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" }}
         >
             {showSurprise && (
-                <Confetti width={width} height={height} numberOfPieces={400} recycle={false} />
-            )}
-            {emojiRain && <EmojiRain />}
-
-            {/* 🎯 Popup */}
-            {showPopup && (
                 <>
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.5 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="fixed inset-0 flex items-center justify-center z-[999]"
-                    >
-
-                        <div className="bg-white/80 backdrop-blur-lg px-10 py-6 rounded-3xl shadow-2xl border border-pink-200 flex flex-col items-center">
-                            <motion.h1
-                                className="text-3xl sm:text-5xl font-bold text-pink-600 drop-shadow-lg"
-                                style={{ fontFamily: "'Alex Brush', cursive" }}
-                                animate={{ scale: [1, 1.1, 1] }}
-                                transition={{ repeat: Infinity, duration: 1.5 }}
-                            >
-                                🎉 Happy Birthday Divya 💖
-                            </motion.h1>
-                            <p className="text-gray-700 mt-2 font-semibold">
-                                Today is all about YOU! ✨
-                            </p>
-                        </div>
-                    </motion.div>
+                    {/* <Confetti width={width} height={height} numberOfPieces={200} recycle={false} /> */}
+                    <FlowerRain />
                 </>
             )}
+
             <ImageComponet images={images} />
             <img src={HBD} alt="hbd" loading="lazy" style={{ textDecoration: "none", paddingTop: "20px" }} />
 

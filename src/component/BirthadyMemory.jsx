@@ -95,6 +95,14 @@ function BirthdayMemory() {
                 transition={{ delay: 1.2, duration: 1 }}
             >
                 MY HEART SAYING TO MY <span className="text-red-600">BIRTHDAY GIRL</span>
+                <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="mt-6 px-6 py-3 rounded-full bg-gradient-to-r from-pink-400 to-pink-600 text-white font-bold shadow-lg hover:shadow-2xl transition"
+                    style={{ fontFamily: "'Dancing Script', cursive", fontSize: "1.4rem" }}
+                >
+                    💝 Click for listen
+                </motion.button>
             </motion.a>
         </motion.div>
     )
