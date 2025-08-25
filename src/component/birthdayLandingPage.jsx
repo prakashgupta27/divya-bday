@@ -188,19 +188,20 @@ export default function BirthdaySurprise() {
                 every single day feels like a celebration for this world
                 whenever it witnesses your beautiful smile.
                 <br />
-                Those who get to see you every day —
+                Those who get to see you every day.<br/>
                 they must be truly the luckiest people on Earth.
                 <br />
                 I wish I could see you every day too...
                 because then, I would celebrate each day
                 as if it were your birthday.
-                <br />That's way my heart say 💓🙈
+                <br/>
+                <br /><span style={{paddingTop:"100px"}}>That's way my heart say 💓🙈</span>
                 <motion.p
                     className="max-w-xl mx-auto mb-14 text-xl sm:text-2xl text-green-1000 font-semibold"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1, duration: 1.5 }}
-                    style={{ fontFamily: "Georgia, serif", paddingTop: "80px" }}
+                    style={{ fontFamily: "Georgia, serif", paddingTop: "10px" }}
                 >
                     "चाँद सी महबूबा हो मेरी,
                     कब ऐसा मैंने सोचा था।

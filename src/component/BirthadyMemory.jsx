@@ -45,9 +45,15 @@ function BirthdayMemory() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 1 }}
             >
-                Every moment we share is a treasure. Your smile brightens my darkest days, your kindness is a gift to everyone around you, and your laugh is the sweetest melody. <br />You are my inspiration, my best friend, and my forever love.
-            </motion.p>
-
+                Your birthday is special because on that very day Kanha played his flute, spreading joy everywhere. On that day, the most beautiful girl was born, the winds were humming, the rivers were singing, the sun was smiling, and even the moon was blushing. </motion.p>
+            <motion.p
+                className="text-lg sm:text-xl leading-relaxed text-center text-gray-800 tracking-wide"
+                style={{ fontFamily: "'Open Sans', sans-serif", paddingTop: "50px" }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 1 }}
+            >ढलते हुए सूरज जैसा है तू, 
+            उदयपुर में बिताई हुई शाम जैसा हसीन है तू।</motion.p>
             <motion.div
                 className="space-y-12" // 👈 adds gap between children
                 initial={{ opacity: 0, y: 30 }}
