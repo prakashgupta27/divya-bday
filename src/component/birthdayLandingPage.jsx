@@ -21,7 +21,7 @@ import Bhai from "../../public/image/bhai.jpeg"
 import Didi from "../../public/image/didi.jpeg"
 import MummyPapa from "../../public/image/mmypapa.jpeg"
 import DiK from "../../public/image/DK.jpeg"
-import DiP from "../../public/image/DP.jpeg"
+import DiP from "../../public/image/DPDP.jpeg"
 
 import "@fontsource/dancing-script";
 
