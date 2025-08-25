@@ -82,7 +82,7 @@ function BirthdayMemory() {
                 </div>
             </motion.div>
             <motion.a
-                href="https://youtu.be/71z3fKIHPaM?si=LsBvST-30tRvciuh"
+                href="https://youtu.be/8SYPKQMW_2Q?si=uHkrgm5fvxJFaW83"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block text-center mt-16 text-1xl font-extrabold 
