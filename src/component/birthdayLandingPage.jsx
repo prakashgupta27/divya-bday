@@ -30,8 +30,8 @@ import FlowerRain from "./FlowerRain";
 const photos = [
     { image: DadaDadi, caption: "Happy birthday Apne Pariwar ki sabse Achi beti Divya ko 🥰" },
     { image: Bhai, caption: "Happy birthday Papa ki ladli beti ko Divu beta ko😍" },
-    { image: Image, caption: "Happy birthday Ek achi Didi ko 😉" },
-    { image: Image, caption: "Happy birthday Sabse achi dost ko 🫂" },
+    { image: Bhai, caption: "Happy birthday Ek achi Didi ko 😉" },
+    { image: Friends, caption: "Happy birthday Sabse achi dost ko 🫂" },
     { image: Image, caption: "Happy birthday Naresh ki friend ko 😏" },
     { image: Friends, caption: "Happy birthday Ek dosti nibhane wali Divya ko ✌️" },
     { image: Image, caption: "Happy Birthday mummy ki pyari beti ko ❤️" },
