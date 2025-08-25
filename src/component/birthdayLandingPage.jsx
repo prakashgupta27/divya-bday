@@ -14,8 +14,12 @@ import CoverPhoto2 from "../../public/image/CoverPhoto2.jpeg";
 import CoverPhoto3 from "../../public/image/CoverPhoto3.jpeg";
 import CoverPhoto4 from "../../public/image/CoverPhoto4.jpeg";
 import CoverPhoto5 from "../../public/image/CoverPhoto5.jpeg";
-import CoverPhoto6 from "../../public/image/CoverPhoto6.jpeg"
-import { Heart, PartyPopper } from "lucide-react"
+import CoverPhoto6 from "../../public/image/CoverPhoto6.jpeg";
+import Friends from "../../public/image/friends.jpeg"
+import DadaDadi from "../../public/image/DadaDadi.jpeg"
+import Bhai from "../../public/image/bhai.jpeg"
+
+import "@fontsource/dancing-script";
 
 import { FaHeart, FaLeaf, FaRegKissWinkHeart } from "react-icons/fa";
 import { GiRose } from "react-icons/gi";
@@ -24,16 +28,16 @@ import PhotoCard from "./PhotoCard";
 import FlowerRain from "./FlowerRain";
 
 const photos = [
-    { image: Image, caption: "Happy birthday Apne Pariwar ki sabse Achi beti Divya ko 🥰" },
-    { image: Image, caption: "Happy birthday Papa ki ladli beti ko Divu beta ko😍" },
+    { image: DadaDadi, caption: "Happy birthday Apne Pariwar ki sabse Achi beti Divya ko 🥰" },
+    { image: Bhai, caption: "Happy birthday Papa ki ladli beti ko Divu beta ko😍" },
     { image: Image, caption: "Happy birthday Ek achi Didi ko 😉" },
     { image: Image, caption: "Happy birthday Sabse achi dost ko 🫂" },
     { image: Image, caption: "Happy birthday Naresh ki friend ko 😏" },
-    { image: Image, caption: "Happy birthday Ek dosti nibhane wali Divya ko ✌️" },
+    { image: Friends, caption: "Happy birthday Ek dosti nibhane wali Divya ko ✌️" },
     { image: Image, caption: "Happy Birthday mummy ki pyari beti ko ❤️" },
     { image: Image, caption: "Happy birthday Duniya ki sabse Sundar ladki ko 🤩" },
     { image: Image, caption: "Happy birthday pyar ko pyar se nibanne wali Divya ko 🥺" }
-];
+];  
 
 
 // const EmojiRain = () => {
@@ -203,7 +207,7 @@ export default function BirthdaySurprise() {
 
             {/* Personal messages */}
             <motion.div
-                className="relative max-w-3xl mx-auto px-6 sm:px-10 py-12 mb-20"
+                className="relative max-w-3xl mx-auto px-6 sm:px-10 py-1 mb-20"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1 }}
@@ -220,31 +224,17 @@ export default function BirthdaySurprise() {
                 >
                     🖤 I love you Divya 🤍
                 </motion.h2>
-
                 <motion.p
                     className="text-lg sm:text-xl leading-relaxed text-center text-gray-800 tracking-wide"
-                    style={{ fontFamily: "'Open Sans', sans-serif" }}
+                    style={{ fontFamily: "'Dancing Script', cursive", fontWeight: 500 }}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6, duration: 1 }}
                 >
-                    From the moment you came into my life, from the moment you became mine, your love has made me feel so truly special. I know I may not be worthy of your love, yet you trusted me, gave me your love, and stood by my side.<br />
+                    From the moment you came into my life, from the moment you became mine,
+                    your love has made me feel so truly special. I know I may not be worthy of your love,
+                    yet you trusted me, gave me your love, and stood by my side.<br />
                 </motion.p>
-
-                {/* <motion.div
-                    className="mt-5 overflow-hidden rounded-[2rem] shadow-2xl ring-4 ring-pink-100 hover:ring-pink-300 transition duration-300"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1, duration: 1 }}
-                    whileHover={{ scale: 1.03 }}
-                >
-                    <img
-                        src={image}
-                        alt="Love Memory"
-                        className="w-full h-74 sm:h-80 object-cover brightness-95 hover:brightness-105 transition duration-500 ease-in-out"
-                        loading="lazy"
-                    />
-                </motion.div> */}
             </motion.div>
 
             <motion.div
@@ -277,9 +267,9 @@ export default function BirthdaySurprise() {
                 // whileHover={{ scale: 1.08, rotate: 1 }}
                 whileTap={{ scale: 0.95 }}
                 className="relative inline-flex items-center justify-center overflow-hidden text-white font-bold py-3 px-12 rounded-full shadow-xl
-             bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600
-             hover:from-pink-500 hover:via-pink-600 hover:to-pink-700
-             transition-all duration-500 ease-out focus:outline-none focus:ring-4 focus:ring-pink-300"
+                    bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600
+                    hover:from-pink-500 hover:via-pink-600 hover:to-pink-700
+                    transition-all duration-500 ease-out focus:outline-none focus:ring-4 focus:ring-pink-300"
                 style={{
                     textDecoration: "none",
                     boxShadow: "0 10px 25px rgba(255, 105, 180, 0.6)",
