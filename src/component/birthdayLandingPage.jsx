@@ -20,8 +20,8 @@ import DadaDadi from "../../public/image/DadaDadi.jpeg"
 import Bhai from "../../public/image/bhai.jpeg"
 import Didi from "../../public/image/didi.jpeg"
 import MummyPapa from "../../public/image/mmypapa.jpeg"
-
-
+import DK from "../../public/image/DK.jpeg"
+import DP from "../../public/image/DP.jpeg"
 
 import "@fontsource/dancing-script";
 
@@ -38,10 +38,10 @@ const photos = [
     { image: Didi, caption: "Happy birthday Ek achi Didi ko " },
     { image: Friends, caption: "Happy birthday Sabse achi dost ko 🫂" },
     // { image: Image, caption: "Happy birthday Naresh ki friend ko 😏" },
-    { image: Friends, caption: "Happy birthday Ek dosti nibhane wali Divya ko ✌️" },
+    { image: DK, caption: "Happy birthday Ek dosti nibhane wali Divya ko ✌️" },
     // { image: Image, caption: "Happy Birthday mummy ki pyari beti ko ❤️" },
     { image: Image, caption: "Happy birthday Duniya ki sabse Sundar ladki ko 🤩" },
-    { image: Image, caption: "Happy birthday pyar ko pyar se nibanne wali Divya ko 🥺" }
+    { image: DP, caption: "Happy birthday pyar ko pyar se nibanne wali Divya ko 🥺" }
 ];  
 
 
