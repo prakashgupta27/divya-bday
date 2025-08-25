@@ -18,6 +18,8 @@ import CoverPhoto6 from "../../public/image/CoverPhoto6.jpeg";
 import Friends from "../../public/image/friends.jpeg"
 import DadaDadi from "../../public/image/DadaDadi.jpeg"
 import Bhai from "../../public/image/bhai.jpeg"
+import Didi from "../../public/image/didi.jpeg"
+
 
 import "@fontsource/dancing-script";
 
@@ -31,8 +33,9 @@ const photos = [
     { image: DadaDadi, caption: "Happy birthday Apne Pariwar ki sabse Achi beti Divya ko 🥰" },
     { image: Bhai, caption: "Happy birthday Papa ki ladli beti ko Divu beta ko😍" },
     { image: Bhai, caption: "Happy birthday Ek achi Didi ko 😉" },
+    { image: Didi, caption: "Happy birthday Ek achi Didi ko " },
     { image: Friends, caption: "Happy birthday Sabse achi dost ko 🫂" },
-    { image: Image, caption: "Happy birthday Naresh ki friend ko 😏" },
+    // { image: Image, caption: "Happy birthday Naresh ki friend ko 😏" },
     { image: Friends, caption: "Happy birthday Ek dosti nibhane wali Divya ko ✌️" },
     { image: Image, caption: "Happy Birthday mummy ki pyari beti ko ❤️" },
     { image: Image, caption: "Happy birthday Duniya ki sabse Sundar ladki ko 🤩" },
