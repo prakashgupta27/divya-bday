@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Image from "../../public/image/image1.png";
 import Image2 from "../../public/image/image2.png";
-import Image3 from "../../public/image/image3.png";
+import Image3 from "../../public/image/image3.png"
 
 import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
