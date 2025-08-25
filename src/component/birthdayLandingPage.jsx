@@ -19,6 +19,8 @@ import Friends from "../../public/image/friends.jpeg"
 import DadaDadi from "../../public/image/DadaDadi.jpeg"
 import Bhai from "../../public/image/bhai.jpeg"
 import Didi from "../../public/image/didi.jpeg"
+import MummyPapa from "../../public/image/mmypapa.jpeg"
+
 
 
 import "@fontsource/dancing-script";
@@ -31,7 +33,7 @@ import FlowerRain from "./FlowerRain";
 
 const photos = [
     { image: DadaDadi, caption: "Happy birthday Apne Pariwar ki sabse Achi beti Divya ko 🥰" },
-    { image: Bhai, caption: "Happy birthday Papa ki ladli beti ko Divu beta ko😍" },
+    { image: MummyPapa, caption: "Happy birthday Papa ki ladli beti ko Divu beta ko😍" },
     { image: Bhai, caption: "Happy birthday Ek achi Didi ko 😉" },
     { image: Didi, caption: "Happy birthday Ek achi Didi ko " },
     { image: Friends, caption: "Happy birthday Sabse achi dost ko 🫂" },
