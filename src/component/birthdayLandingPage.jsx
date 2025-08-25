@@ -39,7 +39,7 @@ const photos = [
     { image: Friends, caption: "Happy birthday Sabse achi dost ko 🫂" },
     // { image: Image, caption: "Happy birthday Naresh ki friend ko 😏" },
     { image: Friends, caption: "Happy birthday Ek dosti nibhane wali Divya ko ✌️" },
-    { image: Image, caption: "Happy Birthday mummy ki pyari beti ko ❤️" },
+    // { image: Image, caption: "Happy Birthday mummy ki pyari beti ko ❤️" },
     { image: Image, caption: "Happy birthday Duniya ki sabse Sundar ladki ko 🤩" },
     { image: Image, caption: "Happy birthday pyar ko pyar se nibanne wali Divya ko 🥺" }
 ];  
